@@ -1,0 +1,142 @@
+/* index.css */
+
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #eaf4fd;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #b3d4fc 0%, #eaf4fd 100%);
+}
+
+.garden-bg {
+  background: url('./assets/garden.png') no-repeat center center;
+  background-size: cover;
+}
+
+.character, .npc, .dog {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+
+.dog {
+  animation: wagTail 0.8s infinite alternate;
+  transition: left 0.2s ease, top 0.2s ease;
+}
+
+.dog.roaming {
+  animation: hop 0.5s infinite alternate, wagTail 0.8s infinite alternate;
+}
+
+.door {
+  position: absolute;
+  top: 200px;
+  left: 700px;
+  font-size: 50px;
+}
+
+.slideshow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #b3d4fc;
+}
+
+.slideshow img {
+  max-height: 80%;
+  max-width: 80%;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.level-msg {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+.garden-msg {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  color: darkgreen;
+}
+
+.quiz, .guess, .jumble, .diamonds {
+  width: 100vw;
+  height: 100vh;
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #b3d4fc 0%, #eaf4fd 100%);
+}
+
+.guess img {
+  max-width: 300px;
+  max-height: 300px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  background-color: gold;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.diamond {
+  position: absolute;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.tree {
+  position: absolute;
+  font-size: 40px;
+}
+
+.npc {
+  font-size: 40px;
+}
+
+/* Animations */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-20px); }
+  50% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+
+@keyframes wagTail {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(10deg); }
+}
+
+@keyframes hop {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
