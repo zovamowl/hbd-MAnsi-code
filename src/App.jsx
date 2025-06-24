@@ -5,6 +5,7 @@ import bgMusic from "./assets/peaceful.mp3";
 import doorSound from "./assets/door.mp3";
 import barkSound from "./assets/bark.mp3";
 
+
 // Character and dog directional sprites
 import girlUp from "./assets/SorceressUpRun-ezgif.com-apng-to-gif-converter.gif";
 import girlDown from "./assets/SorceressDownRun-ezgif.com-crop.png";
@@ -20,14 +21,14 @@ import "../index.css";
 
 // QUIZ, GUESS, JUMBLE setup
 const quizQuestions = [
-  { q: "What is the capital of France?", a: "paris" },
-  { q: "What is 5 + 3?", a: "8" },
-  { q: "What planet do we live on?", a: "earth" },
-  { q: "How many continents are there?", a: "7" },
-  { q: "Who wrote Harry Potter?", a: "jk rowling" }
+  { q: "What’s the smallest prime number?", a: "2" },
+  { q: "Which planet is known as the Red Planet?", a: "mars" },
+  { q: "What animal is often associated with wisdom?", a: "owl" }, // 🦉 Owl question
+  { q: "What’s the square root of 144?", a: "12" },
+  { q: "Which country has Tokyo as its capital?", a: "japan" }
 ];
 
-const drawGuesses = ["owl", "bedroom", "oven", "astronaut", "moon", "wine"];
+const drawGuesses = ["owl", "oven", "astronaut", "bedroom", "mansi", "doy toys"];
 const drawGuessImages = Object.entries(
   import.meta.glob("./assets/guesses/*.{png,jpg,jpeg}", { eager: true })
 )
@@ -36,17 +37,18 @@ const drawGuessImages = Object.entries(
   .map(([path, mod]) => mod.default);
 
 const jumbledWords = [
-  { jumble: "RIBADHTY", word: "birthday" },
-  { jumble: "GMAE", word: "game" },
-  { jumble: "FNERID", word: "friend" }
+  { jumble: "YDNAC", word: "candy" },
+  { jumble: "ZAPIZ", word: "pizza" },
+  { jumble: "RACLOO", word: "color" },
+  { jumble: "NRNCIOU", word: "unicorn" }
 ];
 
 const levelMessages = [
-  "Let’s unlock the door with knowledge!",
-  "Time for a fun guessing game!",
-  "Catch the magical diamonds!",
-  "Unscramble these special words!",
-  "Surprise awaits you in the garden!"
+  "Use your brain to unlock the door of wisdom! 🧠🔓",
+  "Time for a draw guess game!",
+  "Grab those sparkling diamonds before they vanish! 💎✨",
+  "Twist, shuffle, solve! Let’s untangle the mystery words! 🔤🧩",
+  "Whispers float through the garden breeze… maybe it’s calling you. 🌬️🌸"
 ];
 
 const slideshows = {
@@ -208,7 +210,7 @@ export default function App() {
           const dy = characterPos.y - dog.y;
           const distance = Math.hypot(dx, dy);
           if (distance < 10) return dog;
-          const speed = 2;
+          const speed = 5;
           const nextX = dog.x + (dx / distance) * speed;
           const nextY = dog.y + (dy / distance) * speed;
           const dir = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "right" : "left") : (dy > 0 ? "down" : "up");
@@ -220,14 +222,14 @@ export default function App() {
         const distToSister = Math.hypot(characterPos.x - sisterPos.x, characterPos.y - sisterPos.y);
 
         if (distToBrother < 100) {
-          setGardenMessage("Brother: You found me! 🎉");
+          setGardenMessage("Hrishi: You cant catch me try 🤣");
           setBrotherPos(pos => ({
             x: pos.x + Math.random() * 60 - 30,
             y: pos.y + Math.random() * 40 - 20
           }));
           barkRef.current.play();
         } else if (distToSister < 100) {
-          setGardenMessage("Sister: I've been waiting! 💖");
+          setGardenMessage("JESSY: 🎉 HAPPY BIRTHDAY MANSI 💖\n👧🏽 Always remember you have a *Dii* who's here to listen, support, and love you unconditionally. 💌\nNever hesitate to share your thoughts, fears, or dreams with me. 🌈\nKeep smiling always 😄 and know that you're deeply loved. ❤️✨");
           barkRef.current.play();
         } else {
           setGardenMessage("");
@@ -277,7 +279,7 @@ export default function App() {
 
       {gamePhase === "intro" && (
         <>
-          <h1>🎉 Welcome to the Birthday World!</h1>
+          <h1>🎉 Welcome to the HAGO World!</h1>
           <img ref={characterRef} src={directionMap[characterDir]} className="character" style={{ left: characterPos.x, top: characterPos.y }} />
           <div ref={doorRef} className="door">🚪</div>
         </>
@@ -337,8 +339,8 @@ export default function App() {
         <>
           <img src={directionMap[characterDir]} className="character" style={{ left: characterPos.x, top: characterPos.y }} />
           <img src={dogSpriteMap[dogDir]} className="dog" style={{ left: dogPos.x, top: dogPos.y }} />
-          <div className="npc brother" style={{ left: brotherPos.x, top: brotherPos.y }}>👦</div>
-          <div className="npc sister" style={{ left: sisterPos.x, top: sisterPos.y }}>👧</div>
+          <div className="npc brother" style={{ left: brotherPos.x, top: brotherPos.y }}>🕺</div>
+          <div className="npc sister" style={{ left: sisterPos.x, top: sisterPos.y }}>💃</div>
           {trees.map((tree, i) => (
             <div key={i} className="tree" style={{ left: tree.x, top: tree.y }}>🌳</div>
           ))}

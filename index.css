@@ -4,8 +4,9 @@ body, html, #root {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #eaf4fd;
   font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(to bottom, #00BFFF, #8A2BE2); /* sky blue to rich purple */
+  background-attachment: fixed;
 }
 
 .scene {
@@ -13,7 +14,7 @@ body, html, #root {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(to bottom, #b3d4fc 0%, #eaf4fd 100%);
+  background: linear-gradient(to bottom, #00BFFF, #8A2BE2);
 }
 
 .garden-bg {
@@ -38,17 +39,20 @@ body, html, #root {
 
 .door {
   position: absolute;
-  top: 200px;
-  left: 700px;
-  font-size: 50px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 120px;
+  color: #FF6347; /* tomato red */
 }
+
 
 .slideshow {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #b3d4fc;
+  background: linear-gradient(to bottom, #00BFFF, #8A2BE2);
 }
 
 .slideshow img {
@@ -66,6 +70,7 @@ body, html, #root {
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
+  color: #FFD700; /* gold */
   animation: fadeInOut 2s ease-in-out;
 }
 
@@ -75,7 +80,7 @@ body, html, #root {
   width: 100%;
   text-align: center;
   font-size: 1.5rem;
-  color: darkgreen;
+  color: #FF6347;
 }
 
 .quiz, .guess, .jumble, .diamonds {
@@ -87,7 +92,7 @@ body, html, #root {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #b3d4fc 0%, #eaf4fd 100%);
+  background: linear-gradient(to bottom, #8A2BE2, #00BFFF);
 }
 
 .guess img {
@@ -99,7 +104,8 @@ body, html, #root {
 }
 
 button {
-  background-color: gold;
+  background-color: #FFD700;
+  color: #8A2BE2;
   border: none;
   padding: 10px 20px;
   font-weight: bold;
@@ -107,21 +113,25 @@ button {
   cursor: pointer;
   margin-top: 10px;
   font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .diamond {
   position: absolute;
   font-size: 30px;
+  color: #FFD700;
   cursor: pointer;
 }
 
 .tree {
   position: absolute;
   font-size: 40px;
+  color: #00BFFF;
 }
 
 .npc {
-  font-size: 40px;
+  font-size: 50px;
+  color: #8A2BE2;
 }
 
 /* Animations */
